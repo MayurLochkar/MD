@@ -1,16 +1,49 @@
-# React + Vite
+# 🩺 MultiDiseases AI Diagnostic Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An advanced, comprehensive Medical AI Web Application capable of diagnosing multiple serious illnesses using deep learning Convolutional Neural Networks (CNN) and clinical feature assessments.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **Pneumonia Detection**: Analyzes chest X-Rays via CNN to detect pneumatic opacities.
+* **Brain Tumor Detection**: Evaluates MRI scans for tumor masses.
+* **Skin Cancer Classification**: Dermoscopic image analysis for 5 types of lesions (Melanoma, BCC, Nevus, etc.).
+* **Heart Disease Risk**: Clinical numerical assessment based on patient vitals.
+* **Diabetes Prediction**: Advanced metabolic feature analysis.
+* **Grad-CAM Integration**: Visual Explainability AI! Maps exactly *where* the AI model is looking on the X-ray/MRI by rendering a dynamic color heatmap.
+* **Secure Google Authentication**: Protected user sessions powered by Firebase.
 
-## React Compiler
+## 🏗️ Architecture
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Frontend**: React.js / Vite using Tailwind CSS for premium, responsive UI/glassmorphism design.
+2. **Gateway Server**: Node.js / Express.js serving as a CORS-friendly proxy and routing gateway.
+3. **ML Inference Backend**: Python / FastAPI running highly optimized TensorFlow `keras` (.h5) and `scikit-learn` (.pkl) models.
 
-## Expanding the ESLint configuration
+## 🛠️ Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Python ML Service
+```bash
+cd server/ml-service
+pip install -r requirements.txt # Ensure tensorflow, opencv-python, fastapi, uvicorn are installed
+uvicorn main:app --port 8000
+```
+
+### 2. Node.js Gateway Proxy
+```bash
+cd server
+npm install
+node server.js
+```
+
+### 3. React Frontend
+```bash
+cd multidisease-ai
+npm install
+npm run dev
+```
+
+## ✨ Highlights
+* **Eager Layer Execution**: Robust GradCAM extraction overriding Keras 3 sequential graph limitations.
+* **Dynamic Results Panel**: Beautiful clinical summary printouts dynamically fetched.
+
+---
+*Built for the future of accessible AI medical diagnosis.*
